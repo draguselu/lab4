@@ -1,0 +1,225 @@
+/* Concept: Academic Brutalism — React edition */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color:    #1A1A18;
+  --secondary-color:  #2D4A3E;
+  --background-color: #F5F0E8;
+  --text-color:       #1A1A18;
+  --accent-color:     #C8441B;
+  --parchment-mid:    #E8E0CC;
+  --parchment-deep:   #D6CDAE;
+  --white:            #FAFAF7;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono:  'Space Mono', 'Courier New', monospace;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── LAYOUT ───────────────────────────── */
+
+.dashboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* ── HEADER (Ex. 1) ───────────────────── */
+
+.dashboard-header {
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-header h1 em {
+  font-style: italic;
+  color: var(--accent-color);
+}
+
+.dashboard-header p {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5A5A50;
+}
+
+/* ── SECTION BLOCK ────────────────────── */
+
+.dashboard-section {
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--parchment-deep);
+}
+
+/* ── CARD GRID (Ex. 2–4) ──────────────── */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0;
+}
+
+/* ── CARD COMPONENT (Ex. 2–4) ────────── */
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--primary-color);
+  margin: -1px 0 0 -1px;
+  position: relative;
+  transition: background-color 0.2s ease;
+  cursor: default;
+}
+
+.card:hover {
+  background-color: var(--parchment-mid);
+}
+
+.card::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.82rem;
+  color: #4A4A42;
+  line-height: 1.6;
+}
+
+.card-tech {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 2px 8px;
+}
+
+/* ── COUNTER (Ex. 5–6) ────────────────── */
+
+.counter-block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border: 3px solid var(--primary-color);
+  background-color: var(--white);
+  max-width: 420px;
+}
+
+.counter-display {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent-color);
+  min-width: 80px;
+  text-align: center;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5A5A50;
+  margin-top: 0.25rem;
+}
+
+.counter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-accent {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+.btn-muted {
+  border-color: var(--parchment-deep);
+  color: #5A5A50;
+}
+
+.btn-muted:hover {
+  background-color: var(--parchment-deep);
+  color: var(--primary-color);
+}
